@@ -11,6 +11,8 @@ module.exports = {
                controllerCallback(err, result);
           })
      },
+
+    
      get_participant_mit: function (connection,empName, controllerCallback) {
           var sql = " SELECT * from mitdb.employee_master WHERE empEmail= '" + empName+ "'";
           x = empName;
@@ -21,7 +23,6 @@ module.exports = {
 
      get_domain: function (connection, Domain, controllerCallback) {
           var sql = " SELECT orgName FROM superadmindb.organisation_master WHERE superadmindb.organisation_master.OrgUniqId=(SELECT superadmindb.domain_master.orgUniqeId FROM superadmindb.domain_master WHERE superadmindb.domain_master.Domain='"+Domain+"')";
-          x=Domain;
           connection.query(sql, (err, result) => {
                controllerCallback(err, result);
           })
