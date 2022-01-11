@@ -7,7 +7,7 @@ var cors = require('cors');
 // var MySQLStore = require('express-mysql-session')(session);
 
 
-var masterModel = require("./master");
+var master = require("./master");
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -37,9 +37,30 @@ connection.connect(function (error) {
 });
 
 
-app.post('/get_domain_name/', function (req, resp) {
+// app.post('/get_participant/', function (req, resp) {
 
-    master.get_domain(connection, req.body.studentid, function (err, result) {
+//     master.get_participant(connection, req.body.Domain, function (err, result) {
+//       //console.log(result);
+//       if (err) {
+//         console.log(err);
+//       }
+//       else {
+//         var responseData = {
+//           //requestUrl: req.originalUrl,
+//           status: 'success',
+//           data: result,
+//         }
+//         //   console.log(responseData);
+//         resp.send(responseData);
+//       }
+  
+//     });
+//   });
+
+
+  app.post('/get_domain/', function (req, resp) {
+
+    master.get_domain(connection, req.body.Domain, function (err, result) {
       //console.log(result);
       if (err) {
         console.log(err);
