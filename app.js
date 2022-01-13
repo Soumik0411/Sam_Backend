@@ -3,9 +3,11 @@ var mysql = require('mysql');
 var app = express();
 var request = require("request");
 var cors = require('cors');
+const dotenv = require('dotenv');
+dotenv.config();
 
 // var MySQLStore = require('express-mysql-session')(session);
-
+let password = process.env.password;
 
 var master = require("./master");
 var bodyParser = require('body-parser');
@@ -17,7 +19,7 @@ app.use(cors());
 var options = {
   host: 'localhost',
   user: 'root',
-  password: 'Soumik@2000',
+  password: (`${password}`),
   databases: {
     database1: 'superadmindb',
     database2: 'adamasdb',

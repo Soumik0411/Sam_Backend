@@ -2,8 +2,27 @@
   "dependencies": {
     "body-parser": "^1.19.1",
     "cors": "^2.8.5",
+    "dotenv": "^11.0.0",
     "express": "^4.17.2",
     "mysql": "^2.18.1",
     "request": "^2.88.2"
-  }
+  },
+  "name": "sample-app",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Soumik0411/Sam_Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Soumik0411/Sam_Backend/issues"
+  },
+  "homepage": "https://github.com/Soumik0411/Sam_Backend#readme"
 }
