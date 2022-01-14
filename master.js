@@ -4,7 +4,7 @@ module.exports = {
 
 
      get_database: function (connection,Domain, controllerCallback) {
-          var sql = "SELECT cast(AES_DECRYPT(database_name,UNHEX(SHA2('secret',256))) AS CHAR(100)) AS database_name FROM superadmindb.database_master WHERE cast(AES_DECRYPT(Domain,UNHEX(md5('My secret passphrase'))) AS CHAR(100))='"+Domain+"';";
+          var sql = "call superadmindb.get_database('"+Domain+"');";
           connection.query(sql, (err, result) => {
                controllerCallback(err, result);
           })
