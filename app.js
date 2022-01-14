@@ -39,9 +39,9 @@ connection.connect(function (error) {
 });
 
 
-app.post('/get_participant_adamas/', function (req, resp) {
+app.post('/get_participant/', function (req, resp) {
 
-    master.get_participant_adamas(connection, req.body.empName, function (err, result) {
+    master.get_participant(connection, req.body.empName,req.body.database, function (err, result) {
       //console.log(result);
       if (err) {
         console.log(err);
@@ -62,25 +62,25 @@ app.post('/get_participant_adamas/', function (req, resp) {
 
   
 
-  app.post('/get_participant_mit/', function (req, resp) {
+  // app.post('/get_participant_mit/', function (req, resp) {
 
-    master.get_participant_mit(connection, req.body.empName, function (err, result) {
-      //console.log(result);
-      if (err) {
-        console.log(err);
-      }
-      else {
-        var responseData = {
-          //requestUrl: req.originalUrl,
-          status: 'success',
-          data: result,
-        }
-        console.log(responseData);
-        resp.send(responseData);
-      }
+  //   master.get_participant_mit(connection, req.body.empName, function (err, result) {
+  //     //console.log(result);
+  //     if (err) {
+  //       console.log(err);
+  //     }
+  //     else {
+  //       var responseData = {
+  //         //requestUrl: req.originalUrl,
+  //         status: 'success',
+  //         data: result,
+  //       }
+  //       console.log(responseData);
+  //       resp.send(responseData);
+  //     }
   
-    });
-  });
+  //   });
+  // });
 
 
   app.post('/get_domain/', function (req, resp) {
@@ -97,6 +97,27 @@ app.post('/get_participant_adamas/', function (req, resp) {
           data: result,
         }
         //   console.log(responseData);
+        resp.send(responseData);
+      }
+  
+    });
+  });
+
+  app.post('/get_database/', function (req, resp) {
+
+    master.get_database(connection, req.body.Domain, function (err, result) {
+      //console.log(result);
+      if (err) {
+        console.log(err);
+      }
+      else {
+        var responseData = {
+          //requestUrl: req.originalUrl,
+          status: 'success',
+          data: result,
+        }
+        // console.log(req.body);
+        console.log(responseData);
         resp.send(responseData);
       }
   
